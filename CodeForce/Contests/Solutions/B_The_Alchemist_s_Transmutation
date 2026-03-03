@@ -1,0 +1,14 @@
+t = int(input())
+
+for i in range(t):
+    n = int(input())
+    arr = list(map(int, input().split()))
+    value = int(input())
+
+    max_num = max(arr)
+    min_num = min(arr)
+
+    if value <= max_num and value >= min_num:
+        print("YES")
+    else:
+        print("NO")
