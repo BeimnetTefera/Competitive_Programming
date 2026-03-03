@@ -61,8 +61,8 @@ Each entry links directly to the original contest problem.
 
 | Problem | Link | Solution |
 |---------|------|----------|
-| A – Problem Name | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/A) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/A_Perfect_Triangle.py) |
-| B – Problem Name | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/B) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/B_The_Alchemist_s_Transmutation.py) |
-| C – Problem Name | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/C) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/C_Heist_at_the_99_th_Precinct.py) |
-| D – Problem Name | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/D) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/D_Zeroing.py) |
-| E – Problem Name | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/E) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/E_Minimizing_Inversions_in_Concatenated_Arrays.py) |
+| A – Perfect Triangle | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/A) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/A_Perfect_Triangle.py) |
+| B – The Alchemist Transmutation | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/B) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/B_The_Alchemist_s_Transmutation.py) |
+| C – Heist at the 99th Precinct | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/C) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/C_Heist_at_the_99_th_Precinct.py) |
+| D – Zeroing | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/D) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/D_Zeroing.py) |
+| E – Minimized inversions in Concatenated Arrays | [Link](https://codeforces.com/group/kMGd7RzuLZ/contest/675108/problem/E) | [Link](/Users/beimnettefera/Desktop/Competitive_Programming/CodeForce/Contests/Solutions/E_Minimizing_Inversions_in_Concatenated_Arrays.py) |
