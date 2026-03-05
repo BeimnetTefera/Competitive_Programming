@@ -18,3 +18,6 @@ Each problem title links to the original CodeForces question, and the solution l
 | 9 | Number of Smaller | [Link](https://codeforces.com/edu/course/2/lesson/9/1/practice/contest/307092/problem/B) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/B_Number_of_Smaller.py) | 
 | 10 | Less or Equal | [Link](https://codeforces.com/problemset/problem/977/C) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/A_Remove_Smallest.py) | 
 | 11 | Ehab is an Odd Person | [Link](https://codeforces.com/problemset/problem/1174/B) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/A_Remove_Smallest.py) | 
+| 12 | Less or Equal | [Link](https://codeforces.com/problemset/problem/977/C) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/Less_or_Equal) | 
+
+
