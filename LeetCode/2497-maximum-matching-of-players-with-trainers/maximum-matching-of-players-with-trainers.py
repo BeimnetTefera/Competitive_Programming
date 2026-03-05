@@ -17,4 +17,3 @@ class Solution:
                 p2 += 1
 
         return matching
-             
