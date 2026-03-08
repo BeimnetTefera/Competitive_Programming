@@ -1,24 +1,22 @@
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
 
-        skill.sort()
+        total = sum(skill)
+        size = len(skill)
 
-        left = 1
-        right = len(skill) - 2
+        target = total // (size // 2)
 
-        skill_needed = skill[0] + skill[-1]
-        chemistry = skill[0] * skill[-1]
+        store = Counter(skill)
+        chemistry = 0
 
-        while left < right:
-            cur_skill = skill[left] + skill[right]
+        for val in skill:
+            
+            need = target - val
 
-            if cur_skill != skill_needed:
+            if store[need] > 0:
+                chemistry += (val * need)
+                store[need] -= 1
+            else: 
                 return -1
 
-            else:
-                chemistry += (skill[left] * skill[right])
-
-            left += 1
-            right -= 1
-
-        return chemistry
+        return chemistry // 2
