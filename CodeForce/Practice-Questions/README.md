@@ -20,3 +20,4 @@ Each problem title links to the original CodeForces question, and the solution l
 | 11 | Ehab is an Odd Person | [Link](https://codeforces.com/problemset/problem/1174/B) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/A_Remove_Smallest.py) | 
 | 12 | Less or Equal | [Link](https://codeforces.com/problemset/problem/977/C) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/Less_or_Equal) | 
 | 13 | Books | [Link](https://codeforces.com/contest/279/problem/B) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/B_Books.py) | 
+| 14 | Books | [Link](https://codeforces.com/problemset/problem/1174/B) | [Link](https://github.com/BeimnetTefera/Competitive_Programming/blob/main/CodeForce/Practice-Questions/Solutions/Ehab_is_an_Odd_Person.py) | 
