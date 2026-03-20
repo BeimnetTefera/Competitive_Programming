@@ -8,11 +8,9 @@ class Solution:
         while left <= right:
             if people[right] + people[left] <= limit:
                 left += 1
-                right -= 1
 
-            else:
-                right -= 1
-
+            right -= 1
+            
             boats += 1
 
         return boats
