@@ -1,76 +1,66 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
+        '''
+        step 1: if len(t) is greater return ""
+
+        step 2: start with window size of len(t)
         
+        step 3: check for every window if t chars are in it 
+                - if we don't increase the size of the window until we get
+
+        step 4: if we get we use the current length 
+
+        step 5: dcrease the size of an array until we don't find every char then when we reach there start expanding the window
+        '''
+        min_len = float("inf")
+        start = 0
         m = len(s)
         n = len(t)
-        ans = ""
-
+        elt = []
         if n > m:
-            return ans
+            return ""
 
-        needed = Counter(t)
+        left = 0
+        seen = {}
+        need = Counter(t)
 
-        left, len_ans = 0 , float("inf")
-
-        cur_substring = Counter(s[:n])
-
-        case = True
-        for char, freq in needed.items():
-            cur_freq = cur_substring[char]
-
-            if cur_freq < freq:
-                case = False
-                break
-
-        if case:
+        for right in range(m):
+            elt.append(s[right])
+            seen[s[right]] = seen.get(s[right], 0) + 1
+            
             while True:
-
                 valid = True
-                for char, freq in needed.items():
-                    if cur_substring[char] < freq:
+                for char in need:
+                    if char not in seen or need[char] > seen[char]:
                         valid = False
                         break
-
+                
                 if not valid:
                     break
+                    
+                    
+                if right - left + 1 < min_len:
+                    min_len = right - left + 1
+                    start = left
+                    
+                seen[s[left]] -= 1
+                if seen[s[left]] == 0:
+                    del seen[s[left]]
+                        
+                elt.pop(0)
 
-                if n - left < len_ans:
-                    len_ans = n - left 
-                    ans = s[left:n]
-
-                cur_substring[s[left]] -= 1
                 left += 1
-        
-        for right in range(n, m):
+                            
+                
+        return "" if min_len == float("inf") else s[start:start + min_len]
+                                
 
-            cur_substring[s[right]] = cur_substring.get(s[right], 0) + 1
+"""
+s = "OA ABEC ODEBANC", 
+A : 1
+B : 1
+E : 1
+C : 1 
 
-            case = True
-            for char, freq in needed.items():
-                cur_freq = cur_substring[char]
-
-                if cur_freq < freq:
-                    case = False
-                    break
-
-
-            if case:
-                while True:
-
-                    valid = True
-                    for char, freq in needed.items():
-                        if cur_substring[char] < freq:
-                            valid = False
-                            break
-
-                    if not valid:
-                        break
-
-                    if right - left + 1 < len_ans:
-                        len_ans = right - left + 1
-                        ans = s[left:right+1]
-
-                    cur_substring[s[left]] -= 1
-                    left += 1
-
-        return ans
+t = "AAC"
+"""
