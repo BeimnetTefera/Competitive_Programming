@@ -26,6 +26,7 @@ class Solution:
         for first , last, seat in bookings:
             ans[first - 1] += seat
             ans[last] -= seat
+        print(ans)
 
         res = [ans[0]]
         cur = ans[0]
