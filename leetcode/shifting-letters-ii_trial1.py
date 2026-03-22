@@ -1,41 +1,24 @@
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
-        
-
-        """
-        0 = bwd
-        1 = fwd
-
-            0 - 1 ==> bwd
-        abc --> zac
-
-            1 - 2 ==> fwd
-        zac --> zbd
-
-            0 - 2 ==> fwd
-        zbd -- ace
-        """
-        chars = [l for l in s]
-        store = [0] * (len(s) + 1)
-
-        for start, end, step in shifts:
-            if step == 0:
-                store[start] -= 1
-                store[end + 1] += 1
+        mov = [0] * (len(s) + 1)
+        for start, end, direction in shifts:
+            if direction == 1:
+                mov[start] += 1
+                mov[end + 1] -= 1
             else:
-                store[start] += 1
-                store[end + 1] -= 1 
+                mov[start] -= 1
+                mov[end + 1] += 1
+
+        final_mov = [mov[0]]
+        running_sum = mov[0]
+        for i in range(1, len(mov)):
+            running_sum += mov[i]
+            final_mov.append(running_sum)
 
         result = []
-        running_sum = 0
-        for j in range(len(store)):
-            running_sum += store[j]
-            result.append(running_sum)
+        for j in range(len(s)):
+            shift = final_mov[j]
+            ans = (ord(s[j]) - ord("a") + shift) % 26 + ord("a")
+            result.append(chr(ans))
 
-        ans = []
-        for i in range(len(chars)):
-            shift = result[i] % 26  
-            new_char = (ord(chars[i]) - ord('a') + shift) % 26 + ord('a')
-            ans.append(chr(new_char))   
-
-        return "".join(ans)
+        return "".join(result)
