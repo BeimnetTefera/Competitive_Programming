@@ -5,26 +5,41 @@
 #         self.next = next
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
-        store = []
+        infinity = float("inf")
         temp1 = list1
         temp2 = list2
-        while temp1:
-            store.append(temp1.val)
+
+        if not list1:
+            list1 = ListNode(infinity)
+        if not list2:
+            list2 = ListNode(infinity)
+
+        while temp1 and temp1.next:
             temp1 = temp1.next
 
-        while temp2:
-            store.append(temp2.val)
+        if temp1:
+            temp1.next = ListNode(infinity)
+
+        while temp2 and temp2.next:
             temp2 = temp2.next
 
-        if not store:
-            return None
+        if temp2:
+            temp2.next = ListNode(infinity)
 
-        store.sort()
-        head = ListNode(store[0])
-        temp = head
-        for i in range(1, len(store)):
-            new_node = ListNode(store[i])
-            temp.next = new_node
-            temp = temp.next
+        temp3 = list1
+        temp4 = list2
+        result = ListNode(0)
+        cur = result
+        while temp3 and temp4 and cur:
+            if temp3.val <= temp4.val and temp3.val != infinity:
+                cur.next = ListNode(temp3.val)
+                temp3 = temp3.next
 
-        return head
+            elif temp4.val < temp3.val and temp4.val != infinity:
+                cur.next = ListNode(temp4.val)
+                temp4 = temp4.next
+
+            if cur:
+                cur = cur.next
+
+        return result.next
