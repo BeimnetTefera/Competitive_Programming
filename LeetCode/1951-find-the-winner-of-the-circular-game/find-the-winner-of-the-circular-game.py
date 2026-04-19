@@ -1,18 +1,18 @@
 class Solution:
     def findTheWinner(self, n: int, k: int) -> int:
-        arr = range(1, n + 1)
-        que = deque(arr)
+        deq = deque()
+        for i in range(1, n + 1):
+            deq.append(i)
+
         count = 0
 
-        while len(que) > 1:
-            num = que.popleft()
+        while len(deq) > 1:
+            val = deq.popleft()
             count += 1
 
-            if count == k:
+            if k == count:
                 count = 0
-                continue  
-            else:
-                que.append(num)
+                continue
 
-        return que[0]
-
+            deq.append(val)
+        return deq[0]
