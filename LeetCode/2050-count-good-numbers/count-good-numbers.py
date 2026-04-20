@@ -1,6 +1,7 @@
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
         MOD = 10**9 + 7
+        
         prime_count = n // 2
         even_count = n - prime_count
 
