@@ -1,16 +1,14 @@
 class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
-        nums.append(float("-inf"))
-        # if first element greater than elment next to it print its index
-        if nums[0] > nums[1]:
-            return 0
+        left = 0
+        right = len(nums) - 1
 
-        cur, right = 1, 2
-        while right < len(nums):
+        while left < right:
+            mid = left + (right - left) // 2
 
-            # check if it is greater than its neighbours
-            if nums[cur] > nums[cur - 1] and nums[cur] > nums[right]:
-                return cur
-            # move pointer
-            cur += 1
-            right += 1
+            if nums[mid + 1] > nums[mid]:
+                left = mid + 1
+            else:
+                right = mid
+
+        return left
