@@ -21,3 +21,4 @@ class Solution:
                 min_eat = mid + 1
 
         return min_eat
+
