@@ -1,19 +1,23 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        def helper(left, right, s):
+            # if the traverse ends they are same so return true
+            if left >= right:
+                return True
 
-        left = 0
-        right = len(s) - 1
+            # check if both are alphabet and not same no need to check return false
+            if s[left].isalnum() and s[right].isalnum():
+                
+                if s[left].lower() != s[right].lower():
+                    return False
 
-        while left < right:
-            while left < right and not s[left].isalnum():
-                left += 1
-            while left < right and not s[right].isalnum():
-                right -= 1
+            if not s[left].isalnum():
+                return helper(left + 1, right, s)
 
-            if s[right].lower() != s[left].lower():
-                return False
+            elif not s[right].isalnum():
+                return helper(left, right - 1, s)
+
             else:
-                left += 1
-                right -= 1
+                return helper(left + 1, right - 1, s)
 
-        return True
+        return helper(0, len(s) - 1, s)
