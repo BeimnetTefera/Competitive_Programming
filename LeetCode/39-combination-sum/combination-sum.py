@@ -6,7 +6,7 @@ class Solution:
         def helper(idx, k):
 
             # base case
-            if idx == len(candidates):
+            if idx == len(candidates) or k == 0:
                 if k == 0:
                     ans.append(store.copy())
 
@@ -21,7 +21,7 @@ class Solution:
 
                 # backtrack
                 store.pop()
-                
+
             # not pick
             helper(idx + 1, k)
 
