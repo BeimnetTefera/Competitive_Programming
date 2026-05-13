@@ -13,9 +13,6 @@ class Solution:
         temp1 = head
         temp2 = head.next
 
-        dummy = ListNode(-1)
-        cur = dummy
-
         while temp1 or temp2:
             # store odd values in store first
             if temp1:
@@ -33,10 +30,13 @@ class Solution:
                 else:
                     temp2 = temp2.next
 
+        # travere all over the stored array
+        temp = head
+        idx = 0
+        while temp:
+            # replace the existing value with a value in store
+            temp.val = store[idx]
+            temp = temp.next
+            idx += 1
 
-        for num in store:
-            cur.next = ListNode(num)
-            cur = cur.next
-
-        return dummy.next
-
+        return head
