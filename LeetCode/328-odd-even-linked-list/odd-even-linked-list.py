@@ -9,34 +9,23 @@ class Solution:
         if not head or not head.next:
             return head
 
-        store = []
-        temp1 = head
-        temp2 = head.next
+        odd = head
+        even = head.next
+        con = head.next
 
-        while temp1 or temp2:
-            # store odd values in store first
-            if temp1:
-                store.append(temp1.val)
-                if temp1.next:
-                    temp1 = temp1.next.next
-                else:
-                    temp1 = temp1.next
-                
-            # store even values in store nect to odd
-            elif temp2:
-                store.append(temp2.val)
-                if temp2.next:
-                    temp2 = temp2.next.next
-                else:
-                    temp2 = temp2.next
+        while even and even.next:
 
-        # travere all over the stored array
-        temp = head
-        idx = 0
-        while temp:
-            # replace the existing value with a value in store
-            temp.val = store[idx]
-            temp = temp.next
-            idx += 1
+            # connect the odd 
+            odd.next = odd.next.next
+            # move the odd pointer
+            odd = odd.next
+
+            # connect the even 
+            even.next = even.next.next
+            # move the even pointer
+            even = even.next
+
+        # connect thr even to odd
+        odd.next = con
 
         return head
