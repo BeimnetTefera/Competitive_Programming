@@ -5,46 +5,38 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        val = 0
+        carry = 0
+        dummy = ListNode(-1)
+        cur = dummy
 
-        temp1, temp2 = l1, l2
-        carry , digit = 0, 0
+        while l1 or l2:
 
-        cur = None
-        while temp1 or temp2:
-            # get the number one
-            if temp1:
-                num1 = temp1.val
-            else:
-                num1 = 0
-            # move pointer None
-            if temp1 is not None:
-                temp1 = temp1.next
-            # get number 2
-            if temp2:
-                num2 = temp2.val
-            else:
-                num2 = 0
-            # move pointer if not none
-            if temp2 is not None:
-                temp2 = temp2.next
+            # if both of them are numbers
+            if l1 and l2:
+                summation = (l1.val + l2.val + carry)
+                l2 = l2.next
+                l1 = l1.next
 
-            # do the calculation
-            sum_ = num1 + num2 + carry
+            # if l2 is none
+            elif l1:
+                summation = l1.val + carry
+                l1 = l1.next
+            # if l1 is none
+            elif l2:
+                summation = l2.val + carry
+                l2 = l2.next
 
-            carry = sum_ // 10
-            digit = sum_ % 10
 
-            new_node = ListNode(digit)
-            if cur is None:
-                cur = new_node
-                head = cur
-            else:
-                cur.next = new_node
-                cur = cur.next
-                
-        # if carry add to the last one
-        if carry:
-            new_node = ListNode(carry)
-            cur.next = new_node
+            val = summation %  10
+            carry = summation // 10
 
-        return head
+            cur.next = ListNode(val)
+
+            # move the pointers
+            cur = cur.next
+
+        if carry > 0:
+            cur.next = ListNode(carry)
+
+        return dummy.next
