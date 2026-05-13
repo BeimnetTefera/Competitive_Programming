@@ -9,40 +9,34 @@ class Solution:
         if not head or not head.next:
             return head
 
-        # works when we have nodes greater or equal to 4 nodes
-        cur = head
-        slow = head.next
-        fast = slow.next
+        store = []
+        temp1 = head
+        temp2 = head.next
 
-        evenHead = slow
+        dummy = ListNode(-1)
+        cur = dummy
 
-        while fast:
-            if fast.next:
-                p2 = fast.next
-            else: 
-                p2 = None
-
-
-            cur.next = fast
-            fast.next = slow
-
-            if p2:
-                slow.next = p2
-            else:
-                slow.next = None
-
-
-            # move pointers
-            cur = fast
-            slow = p2
-
-            if p2:
-                fast = p2.next
-            else:
-                fast = None
+        while temp1 or temp2:
+            # store odd values in store first
+            if temp1:
+                store.append(temp1.val)
+                if temp1.next:
+                    temp1 = temp1.next.next
+                else:
+                    temp1 = temp1.next
+                
+            # store even values in store nect to odd
+            elif temp2:
+                store.append(temp2.val)
+                if temp2.next:
+                    temp2 = temp2.next.next
+                else:
+                    temp2 = temp2.next
 
 
-        cur.next = evenHead
+        for num in store:
+            cur.next = ListNode(num)
+            cur = cur.next
 
-        return head
-        
+        return dummy.next
+
