@@ -1,31 +1,24 @@
 class Solution:
     def countGoodNumbers(self, n: int) -> int:
-        MOD = 10**9 + 7
-        
-        def helper(power, num):
-            # base case
-            if power == 0:
+
+        Mod = 10**9 + 7
+
+        def power (num, exp):
+
+            if exp == 0:
                 return 1
 
-            half_res = helper(power // 2, num)
+            half = power(num, exp // 2)
 
-            if power % 2 == 0:
-                return (half_res * half_res) % MOD
+            if exp % 2 == 0:
+                return  (half * half) % Mod
+
             else:
-                return (half_res * half_res * num) % MOD
+                return (half * half * num) % Mod
 
-        # check if it is even or odd
-        is_even = False
-        if n % 2 == 0:
-            is_even = True
-        
-        power = n // 2
+        odd_cnt = n // 2
+        even_cnt = n - odd_cnt
 
-        # do the recursion for the half of them
-        res1 = helper(power, 5)
-        res2 = helper(power, 4)
+        total = (power(5, even_cnt) * power(4, odd_cnt)) % Mod 
 
-        if is_even:
-            return (res1 * res2) % MOD
-        else:
-            return (res1 * res2 * 5) % MOD
+        return total
