@@ -14,7 +14,13 @@ class Solution:
             arr.append(temp.val)
             temp = temp.next
             
-        arr.sort()
+        for i in range(1,len(arr)):
+            j = i
+            while arr[j-1] > arr[j] and j > 0:
+                arr[j], arr[j-1] = arr[j-1], arr[j]
+                j -= 1
+                
+
         new_head = ListNode(arr[0])
         cur = new_head
         
