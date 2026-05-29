@@ -1,18 +1,23 @@
 class Solution:
     def nextGreaterElements(self, nums: List[int]) -> List[int]:
-        arr = nums + nums
-        n = len(nums)
+        
+        ans = [None] * len(nums)
 
-        stack = [] 
-        ans = [-1] * len(nums)
+        for i in range(len(nums)):
 
-        for i in range(len(arr)):
-            while stack and arr[stack[-1]] < arr[i]:
-                idx = stack.pop()
+            for j in range(i+1, len(nums)):
+                if nums[j] > nums[i]:
+                    ans[i] = nums[j]
+                    break
 
-                ans[idx] = arr[i]
+            if ans[i] == None:
+                for k in range (0, i):
+                    if nums[k] > nums[i]:
+                        ans[i] = nums[k]
+                        break
 
-            if i < n:
-                stack.append(i)
+        for i in range(len(nums)):
+            if ans[i] == None:
+                ans[i] = -1
 
-        return ans 
+        return ans
