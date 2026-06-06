@@ -1,21 +1,36 @@
 class Solution:
     def backspaceCompare(self, s: str, t: str) -> bool:
-        stack1 = []
-        stack2 = []
 
-        for char1 in s:
-            if char1 == '#':
-                if stack1:
-                    stack1.pop()
-            else:
-                stack1.append(char1)
+        def validNextChar(str, idx):
+            backspace = 0
 
+            while idx >= 0:
+                if not backspace and str[idx].isalpha():
+                    break
 
-        for char2 in t:
-            if char2 == '#':
-                if stack2:
-                    stack2.pop()
-            else:
-                stack2.append(char2)
-                
-        return stack1 == stack2
+                elif str[idx] == '#':
+                    backspace += 1
+                else:
+                    backspace -= 1
+
+                idx -= 1
+
+            return idx
+
+        idx_s , idx_t = len(s) - 1, len(t) - 1
+
+        while idx_s >= 0 or idx_t >= 0:
+
+            idx_s = validNextChar(s, idx_s)
+            idx_t = validNextChar(t, idx_t)
+
+            char_s = s[idx_s] if  idx_s >= 0 else ""
+            char_t = t[idx_t] if  idx_t >= 0 else ""
+
+            if char_s != char_t:
+                return False
+
+            idx_s -= 1
+            idx_t -= 1
+
+        return True
