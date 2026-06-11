@@ -1,13 +1,17 @@
 # Write your MySQL query statement below
-SELECT 
-    DISTINCT(num) AS ConsecutiveNums
-FROM (
+WITH Final_Table AS (
     SELECT 
-        num,
-        LEAD(num) OVER (ORDER BY id) AS num2,
-        LEAD(num, 2) OVER (ORDER BY id) AS num3
-    FROM Logs 
-) AS t
-WHERE 
-    num = num2 AND
-    num = num3
+        *,
+        COUNT(*) OVER (PARTITION BY bucket, num) AS cnt
+    FROM (
+        SELECT
+            id,
+            num,
+            id - ROW_NUMBER() OVER (PARTITION BY num ORDER BY id) AS bucket
+        FROM Logs
+        ) t
+)
+SELECT DISTINCT
+    num AS ConsecutiveNums
+FROM Final_Table
+WHERE cnt >= 3
