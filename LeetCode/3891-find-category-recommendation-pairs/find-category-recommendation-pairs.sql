@@ -1,13 +1,13 @@
 /* Write your T-SQL query statement below */
 WITH MainTable AS (
-    SELECT 
+    SELECT DISTINCT
         user_id,
         category
     FROM ProductPurchases 
     INNER JOIN ProductInfo 
         ON ProductPurchases.product_id = ProductInfo.product_id
 ),
-FinalTable AS (
+CategoryPairs AS (
     SELECT
         t1.user_id,
         t1.category AS category1,
@@ -20,8 +20,8 @@ FinalTable AS (
 SELECT
     category1,
     category2,
-    COUNT(DISTINCT user_id) AS customer_count
-FROM FinalTable
+    COUNT(user_id) AS customer_count
+FROM CategoryPairs
 GROUP BY category1 , category2
 HAVING COUNT(DISTINCT user_id) >= 3
 ORDER BY customer_count DESC,
